@@ -1,5 +1,7 @@
 'use strict'
 
+let POINT_COUNT = 3;
+
 const createHeaderRouteAndPriceTemplate = () => {
   return (
     `<section class="trip-main__trip-info  trip-info">
@@ -79,9 +81,13 @@ const createMainSortTemplate = () => {
       </div>
 
       <span class="trip-sort__item  trip-sort__item--offers">Offers</span>
-    </form>
+    </form>`
+  );
+};
 
-    <form class="trip-events__item  event  event--edit" action="#" method="post">
+const createMainEditTemplate = () => {
+  return (
+    `<form class="trip-events__item  event  event--edit" action="#" method="post">
       <header class="event__header">
         <div class="event__type-wrapper">
           <label class="event__type  event__type-btn" for="event-type-toggle-1">
@@ -332,6 +338,7 @@ const siteMainElementTripEventsHeader = siteMainElementTripEvents.querySelector(
 render(siteHeaderElementTrip, createHeaderRouteAndPriceTemplate(), `afterbegin`);
 render(siteHeaderElementMenuHeaders[0], createHeaderMenuTemplate(), `afterend`);
 render(siteHeaderElementMenuHeaders[1], createHeaderFilterTemplate(), `afterend`);
+render(siteMainElementTripEventsHeader, createMainEditTemplate(), `afterend`);
 render(siteMainElementTripEventsHeader, createMainSortTemplate(), `afterend`);
 render(siteMainElementTripEvents, сreateMainContentContainerDaysTemplate(), `beforeend`);
 
@@ -339,6 +346,6 @@ const siteMainElementTripEventsDays = siteMainElementTripEvents.querySelector('.
 render(siteMainElementTripEventsDays, сreateMainContentDayTemplate(), `beforeend`);
 
 const siteMainElementTripEventsDay = siteMainElementTripEventsDays.querySelector('.trip-events__list');
-render (siteMainElementTripEventsDay, сreateMainContentDayRoutePointTemplate(), `beforeend`);
-render (siteMainElementTripEventsDay, сreateMainContentDayRoutePointTemplate(), `beforeend`);
-render (siteMainElementTripEventsDay, сreateMainContentDayRoutePointTemplate(), `beforeend`);
+for (let i = 0; i < POINT_COUNT; i++) {
+  render (siteMainElementTripEventsDay, сreateMainContentDayRoutePointTemplate(), `beforeend`);
+}
